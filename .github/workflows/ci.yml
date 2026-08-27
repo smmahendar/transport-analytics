@@ -13,12 +13,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show repository structure
-        run: find . -maxdepth 2 -type f | sort
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-      - name: Validate expected directories
-        run: |
-          test -d src
-          test -d tests
-          test -d docs
-          test -d config
+      - name: Install CI dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Validate Python syntax
+        run: python -m compileall src tests
+
+      - name: Run Python linting
+        run: ruff check src tests
+
+      - name: Run unit tests
+        run: pytest
+
+      - name: Validate YAML
+        run: yamllint .github config

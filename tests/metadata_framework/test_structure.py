@@ -1,15 +1,12 @@
 """Structural tests for the initial metadata framework scaffold."""
 
-import sys
 from pathlib import Path
+
+import metadata_framework
+from metadata_framework import __version__, cli
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
-SOURCE_ROOT = REPOSITORY_ROOT / "src"
-sys.path.insert(0, str(SOURCE_ROOT))
-
-import metadata_framework  # noqa: E402
-from metadata_framework import cli  # noqa: E402
 
 
 def test_package_imports() -> None:
@@ -17,7 +14,7 @@ def test_package_imports() -> None:
 
 
 def test_version() -> None:
-    assert metadata_framework.__version__ == "0.1.0"
+    assert __version__ == "0.1.0"
 
 
 def test_cli_main_exists() -> None:

@@ -11,6 +11,9 @@ venv/
 .coverage
 htmlcov/
 
+# Python packaging output
+*.egg-info/
+
 # Environment files and secrets
 .env
 .env.*

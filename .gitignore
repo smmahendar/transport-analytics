@@ -23,3 +23,7 @@ htmlcov/
 .vscode/
 .idea/
 .DS_Store
+
+# Secretkeys, Logs and temporary files
+.env
+requests/responses/

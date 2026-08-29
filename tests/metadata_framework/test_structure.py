@@ -5,7 +5,6 @@ from pathlib import Path
 import metadata_framework
 from metadata_framework import __version__, cli
 
-
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 
 

@@ -11,5 +11,12 @@ The initial lineage path is:
 
 `NiFi → ZIP → TXT → raw table → conformed Iceberg table`
 
+## Canonical contracts
+
+`DataAsset` is the framework's internal, technology-neutral representation of a
+data asset. It is not an OpenMetadata entity. Publishers will later map
+`DataAsset` instances to suitable OpenMetadata entities such as Container,
+Table, or Topic.
+
 Implementation will proceed incrementally, adding connectivity, extraction,
 mapping, publishing, lineage processing, and state management in later changes.
